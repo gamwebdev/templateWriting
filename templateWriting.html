@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title></title>
+	<script type="text/javascript" src="jquery-3.0.0.min.js"></script>
+	<script type="text/javascript" src="jquery-ui.min.js"></script>
+<style type="text/css">
+
+</style>
+</head>
+<body>
+
+<div id="blogTemplate" type='tuts/template'>  <!--replace div by script for actual tut procedure-->  
+<h2>{{title}}</h2>
+<img src={{thumbnail}} alt={{title}}>
+</div>
+
+
+<script type="text/javascript">
+ (function(){
+	var content = [
+	{
+	title:'my first awesome BLOGPOST',
+	thumbnail:'african-forum-on-music-480x480.jpg',
+	},
+	{
+	title:'my second awesome BLOGPOST',
+	thumbnail:'Dj-Training..-2.jpg',
+	}
+	];
+	
+	template = $.trim($('#blogTemplate').html());
+	$.each(content,function(index,obj){
+		var temp = template.replace(/{{title}}/ig,obj.title)
+						   .replace(/{{thumbnail}}/ig,obj.thumbnail) ;
+
+			$(document.body).append(temp);		
+	});
+	
+	
+ }());
+</script>
+</body>
+
+<!-- Mirrored from www.w3schools.com/css/tryit.asp?filename=trycss_transparency by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 07 Sep 2014 06:59:44 GMT -->
+</html>

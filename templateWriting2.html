@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title></title>
+	<script type="text/javascript" src="jquery-3.0.0.min.js"></script>
+	<script type="text/javascript" src="jquery-ui.min.js"></script>
+<style type="text/css">
+
+</style>
+</head>
+<body>
+
+<script id="blogTemplate" type='tuts/template'>  // not a js file
+<h1>{{title1}}<h1>
+<h2>{{title2}}<h2>
+<img src={{thumbnail}} alt={{title}}>
+</script>
+
+
+<script type="text/javascript">
+$('document').ready(function(){
+	var content = [
+	{
+		title1:'first post',
+		title2:'first heading',
+		thumbnail:'african-forum-on-music-480x480.jpg',	
+	},
+	{
+		title1:'second post',
+		title2:'second heading',
+		thumbnail:'Dj-Training..-2.jpg',	
+	},
+	{
+		title1:'third post',
+		title2:'third heading',
+		thumbnail:'african-forum-on-music-480x480.jpg',	
+	}
+	];
+	
+	var template = $.trim($('#blogTemplate').html());
+	
+	$.each(content,function(index,obj){
+		var temp = 
+					template.replace(/{{title1}}/ig,obj.title1)
+							.replace(/{{title2}}/ig,obj.title2)
+							.replace(/{{thumbnail}}/ig,obj.thumbnail);
+					
+			$(document.body).append(temp);	
+	});
+});
+</script>
+</body>
+
+<!-- Mirrored from www.w3schools.com/css/tryit.asp?filename=trycss_transparency by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 07 Sep 2014 06:59:44 GMT -->
+</html>
